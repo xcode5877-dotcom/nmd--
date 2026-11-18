@@ -86,6 +86,25 @@ body{background:#07080c}
 .yk b{font:800 96px Alexandria;direction:ltr}
 .yk span{font:600 34px Alexandria;color:#c9c9d2;margin-top:8px}
 .yk2{bottom:90px;left:70px;right:70px;text-align:center;font:600 40px/1.45 Alexandria;color:#e6e6ee}
+
+.wa{top:110px;right:60px;width:420px;height:650px;background:#0b141a;border-radius:26px;overflow:hidden;border:4px solid #1f2c34}
+.wh{background:#1f2c34;font:700 26px Alexandria;padding:18px 20px;color:#e9edef}
+#walist{position:absolute;top:66px;left:0;right:0;bottom:0;overflow:hidden}
+.wi{display:flex;align-items:center;gap:14px;padding:12px 18px;border-bottom:1px solid #1f2c34}
+.wi i{width:54px;height:54px;border-radius:50%;flex:none;display:block}
+.wi div{flex:1}.wi b{display:block;font:700 24px Alexandria;color:#e9edef}.wi span{font:500 20px Alexandria;color:#8696a0}
+.wi em{font-style:normal;background:#25d366;color:#06240f;font:800 18px Alexandria;border-radius:12px;padding:2px 10px}
+.bigN{top:200px;left:50px;width:400px;text-align:center}
+.bigN b{display:block;font:800 200px/1 Alexandria;color:#25d366}
+.bigN span{font:700 40px Alexandria}
+.spend{top:560px;left:50px;width:400px;text-align:center;font:600 38px Alexandria;color:#c9c9d2}
+.spend b{color:#fff;font:800 56px Alexandria}
+.r2{top:150px;left:60px;right:60px;text-align:center}
+.r2 b{display:block;font:800 260px/1 Alexandria;color:#fff}
+.r2 span{font:600 40px Alexandria;color:#ff4a63}
+.r2s{bottom:60px;left:60px;right:60px;display:flex;gap:24px}
+.r2s div{flex:1;background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.08);border-radius:22px;padding:22px;text-align:center}
+.r2s b{display:block;font:800 64px Alexandria}.r2s span{font:500 28px Alexandria;color:#aab}
 /* end */
 #end{inset:0;z-index:45;background:#07080c;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0}
 #end img{width:420px}
@@ -99,16 +118,15 @@ body{background:#07080c}
 
 <div id="scr" class="abs">
  <div id="s1" class="seg abs">
-  <div class="s1t abs">ناو ماركت · نفس الأسبوع، توقيت مختلف</div>
-  <div class="ph abs" id="pA" style="right:60px"><img id="fA"><div class="pl">الجمعة 11:04 الصبح</div><div class="pr"><b class="num" id="rA">0</b> وصول</div></div>
-  <div class="ph abs" id="pB" style="left:60px"><img id="fB"><div class="pl">السبت 5:05 المسا</div><div class="pr hot"><b class="num" id="rB">0</b> وصول</div></div>
+  <div class="s1t abs" style="font-size:32px">نعمان عبدالله · حملة لمّ الشمل · 3 أيام</div>
+  <div class="wa abs"><div class="wh">💬 واتساب · محادثات جديدة</div><div id="walist"></div></div>
+  <div class="bigN abs"><b class="num" id="nN">0</b><span>محادثة واتساب</span></div>
+  <div class="spend abs">الميزانية: <b class="num">60 ₪</b></div>
  </div>
  <div id="s2" class="seg abs">
-  <div class="s2t abs">ريل مقابل ريل · نفس الأسبوع</div>
-  <div id="x39" class="abs num">×7.8</div>
-  <div id="c1" class="col abs"></div><div id="c2" class="col abs"></div>
-  <div id="v1" class="cv abs num" style="right:130px">41</div><div id="v2" class="cv abs num" style="left:130px">0</div>
-  <div class="cl abs" style="right:130px">الجمعة 11:04 الصبح</div><div class="cl abs" style="left:130px">السبت 5:05 المسا</div>
+  <div class="s2t abs">ريتال بوكس · حملات واتساب من سبتمبر</div>
+  <div class="r2 abs"><b class="num" id="nR">0</b><span>محادثة من أصحاب مصالح بدهم تغليف</span></div>
+  <div class="r2s abs"><div><b class="num">5.5 ₪</b><span>تكلفة المحادثة</span></div><div><b class="num">21,222</b><span>شخص وصلهم الإعلان</span></div></div>
  </div>
  <div id="s3" class="seg abs">
   <img id="foot">
@@ -138,11 +156,12 @@ body{background:#07080c}
 <div id="wipe" class="abs"></div>
 <script src="lib.js"></script>
 <script>
-const items=['ناو ماركت: ريل المسا وصل تقريبًا 8 أضعاف ريل الصبح','المحامي نعمان عبدالله: ريل «وصلت المطار» وصل 15 ضعف المنشور اللي قبله','المحامي نمر مصالحة: ريل «لجنة طبية» 229 مشاهدة على تيك توك بأول يوم','بيانكو: ريل «عرسان 2027» انشارك 11 مرة','Yok Aesthetics انضمّت لـ NMD','مصلحتك: ؟','NMD: تسويق، برمجة، وأنظمة بيع لمصالح دبورية والمنطقة'];
+const items=['نعمان عبدالله: 98 محادثة واتساب بـ60 شيكل خلال 3 أيام','ريتال بوكس: 435 محادثة واتساب من أصحاب مصالح','بيانكو: ريل «عرسان 2027» وصل 4,391 شخص وانشارك 97 مرة','Yok Aesthetics انضمّت لـ NMD','مصلحتك: ؟','NMD: تسويق، برمجة، وأنظمة بيع لمصالح دبورية والمنطقة'];
+const cols=['#e9b44c','#7ee0c3','#ff8fa3','#b6a6ff','#53bdeb','#f28b50','#9ad16b','#e9b44c','#7ee0c3'];const msgs=['مرحبا، بخصوص لمّ الشمل','وصلتني رسالة من الداخلية','بدي أسأل عن ملف زوجتي','قديش بتاخد المعاملة؟','مرحبا، شفت الإعلان','عندي سؤال عن التجديد','ممكن استشارة؟','الملف رجع لورا، شو أعمل؟','السلام عليكم'];msgs.forEach((m,k)=>{const d=document.createElement('div');d.className='wi';d.innerHTML=`<i style="background:${cols[k]}"></i><div><b>محادثة جديدة</b><span>${m}</span></div><em>1</em>`;$('#walist').prepend(d);});
 $('#run').innerHTML=(items.map(s=>s+'<i>●</i>').join('')).repeat(3);
 const HL=[
- [2.6,9.4,'نفس المصلحة، نفس الأسبوع: ريل المسا وصل 8 أضعاف ريل الصبح','ناو ماركت · 13–14 نوفمبر','عاجل'],
- [9.8,13.2,'الدرس: التوقيت نص الشغل. ناو ماركت صارت تنزّل كوميديا بالمسا بس','ناو ماركت · دبورية','تحليل'],
+ [2.6,9.4,'مكتب محاماة: 98 محادثة واتساب بـ60 شيكل بس','المحامي نعمان عبدالله · 15–18 نوفمبر','عاجل'],
+ [9.8,13.2,'ريتال بوكس: 435 صاحب مصلحة بعتوا على الواتساب يسألوا عن تغليف','ريتال بوكس · من سبتمبر','أرقام'],
  [13.6,19.6,'ريل «عرسان 2027» لبيانكو وصل 1,857 شخص قبل أي إعلان ممول','مطابخ بيانكو · يركا','من الأرشيف'],
  [20.0,23.2,'مصلحة جديدة انضمّت. الأرقام كل أسبوع هون','Yok Aesthetics','جديد'],
  [23.6,26.9,'الخبر الجاي ممكن يكون عن مصلحتك','ابعت «فحص» وبنفحصلك صفحتك ببلاش','قريبًا'],
@@ -163,16 +182,14 @@ window.render=async function(t){
  // segments
  const segs=[['#s1',2.35,9.55],['#s2',9.55,13.4],['#s3',13.4,19.8],['#s4',19.8,23.4],['#s5',23.4,29]];
  for(const [id,a,b] of segs) set(id,{o:(t>=a&&t<b)?1:0});
- // s1 phones
- if(t>=2.35&&t<9.55){await seq($('#fA'),'nm_fri',t-2.35+1.5,30,360);await seq($('#fB'),'nm_sat',t-2.35+0.5,30,394);}
- set('#pA',{tf:`translateY(${mix(80,0,eo(lin(t,2.5,3.1)))}px)`,o:lin(t,2.5,2.8)});set('#pB',{tf:`translateY(${mix(80,0,eo(lin(t,2.8,3.4)))}px)`,o:lin(t,2.8,3.1)});
- set('#rA',{txt:fmt(41*eo(lin(t,4,5.2)))});set('#rB',{txt:fmt(321*eo(lin(t,5.6,7.4)))});
- set('#pB .pr',{tf:`scale(${t>7.4?1+.04*Math.sin((t-7.4)*10)*Math.exp(-(t-7.4)*2):1})`});
- // s2 bars
- const H=400,h1=H*41/321, k2=eo(lin(t,10,11.6));
- set('#c1',{height:h1*eo(lin(t,9.7,10.4))+'px'});set('#c2',{height:H*k2+'px'});
- set('#v1',{bottom:(120+h1*eo(lin(t,9.7,10.4))+14)+'px'});set('#v2',{bottom:(120+H*k2+14)+'px',txt:fmt(321*k2)});
- set('#x39',{o:lin(t,11.6,12),tf:`scale(${mix(1.6,1,back(lin(t,11.6,12.1)))})`});
+ // s1 whatsapp
+ const kN=lin(t,3.2,8.4);set('#nN',{txt:fmt(98*eio(kN))});
+ const shown=Math.ceil(9*lin(t,3.2,7.0));
+ document.querySelectorAll('.wi').forEach((e,k)=>{e.style.display=k<shown?'flex':'none'});
+ set('#walist',{});const L=$('#walist');L.style.transform=`translateY(${-Math.max(0,shown-9)*0}px)`;
+ set('.bigN',{tf:`scale(${mix(.7,1,back(lin(t,2.9,3.4)))})`,o:lin(t,2.9,3.1)});set('.spend',{o:lin(t,4,4.4)});
+ // s2 retal
+ set('#nR',{txt:fmt(435*eo(lin(t,10,11.8)))});set('.r2s',{o:lin(t,11.6,12)});
  // s3 footage
  if(t>=13.4&&t<19.8){await seq($('#foot'),'yazan',t-13.4+5.0,30,1226);}
  set('#foot',{tf:`scale(${mix(1.08,1,lin(t,13.4,19.8))})`});

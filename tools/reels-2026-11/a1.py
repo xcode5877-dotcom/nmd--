@@ -1,5 +1,8 @@
 from sfx import *
-D=28.5; m=Mix(D); B=0.5  # 120bpm
+D=28.5; m=Mix(D)
+def recv_():
+    t=T(.25); return (np.sin(2*np.pi*1046*t)*np.exp(-t/.06)+np.sin(2*np.pi*1568*np.maximum(0,t-.07))*np.exp(-np.maximum(0,t-.07)/.06)*(t>.07))*.35
+import numpy as np; B=0.5  # 120bpm
 # intro sting
 m.add(boom(),0.05,1.0); m.add(whoosh(.7),0,0.6)
 for i,n in enumerate([62,66,69,74]): m.add(pluck(note(n),.5),0.1+i*0.12,.35)
@@ -21,9 +24,9 @@ while t<27.1:
     t+=4*B; bar+=1
 for c in [2.35,9.55,13.4,19.8,23.4]: m.add(whoosh(.55),c-.28,.8); m.add(boom(),c,.5)
 # counters
-for i in range(12): m.add(tick(2200+i*30),4+i*0.1,.35)
-for i in range(20): m.add(tick(2500+i*30),5.6+i*0.09,.35)
-m.add(pop(),7.4,.9)
+for i in range(9): m.add(recv_(),3.2+i*0.42,.5)
+for i in range(30): m.add(tick(2200+i*25),3.2+i*0.17,.3)
+m.add(pop(),8.4,.9); m.add(ding(),8.45,.5)
 for i in range(18): m.add(tick(1800+i*40),10+i*0.09,.35)
 m.add(pop(),20.2,.9); m.add(ding(note(84)),20.25,.5)
 m.add(pop(),11.6,.9); m.add(ding(),11.62,.6)
