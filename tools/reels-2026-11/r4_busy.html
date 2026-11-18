@@ -1,0 +1,79 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="base.css">
+<style>
+body{background:#0c0d10}
+#bg{inset:0;background:radial-gradient(900px 700px at 50% 35%,#1d2a22 0%,#0c0d10 70%)}
+#hook{inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;z-index:20;background:#0c0d10}
+#hook .a{font:800 120px/1.1 Alexandria}
+#hook .b{font:700 64px/1.3 Alexandria;margin-top:30px}
+#hook .b span{color:#25d366}
+#hook .c{font:500 38px Alexandria;color:#9aa;margin-top:26px}
+.card{position:absolute;left:70px;right:70px;top:250px;height:1250px;opacity:0}
+.tag{font:700 36px Alexandria;color:#9aa}
+.nm{font:800 76px/1.15 Alexandria;margin-top:8px}
+.ph{position:absolute;top:220px;left:0;right:0;height:640px;background:#0b141a;border-radius:34px;border:4px solid #1f2c34;overflow:hidden}
+.ph .wh{background:#1f2c34;font:700 30px Alexandria;padding:20px 26px;color:#e9edef;display:flex;justify-content:space-between}
+.ph .wh em{font-style:normal;background:#25d366;color:#06240f;border-radius:20px;padding:0 16px;font:800 28px Alexandria}
+.lst{position:absolute;top:74px;left:0;right:0;bottom:0;overflow:hidden}
+.wi{display:flex;align-items:center;gap:18px;padding:16px 24px;border-bottom:1px solid #1f2c34}
+.wi i{width:66px;height:66px;border-radius:50%;flex:none;display:block}
+.wi div{flex:1}.wi b{display:block;font:700 30px Alexandria;color:#e9edef}.wi span{font:500 25px Alexandria;color:#8696a0}
+.wi u{text-decoration:none;background:#25d366;color:#06240f;font:800 22px Alexandria;border-radius:14px;padding:2px 12px}
+.note{position:absolute;top:868px;left:0;right:0;text-align:center;font:500 24px Alexandria;color:#6f7a80}
+.num1{position:absolute;top:920px;left:0;right:0;text-align:center}
+.num1 b{display:block;font:800 150px/1 Alexandria;color:#25d366}
+.num1 span{font:700 42px Alexandria}
+.stamp{position:absolute;top:380px;left:50%;width:640px;margin-left:-320px;text-align:center;border:12px solid #ff3b4a;color:#ff3b4a;font:800 84px/1.1 Alexandria;padding:18px 0 26px;border-radius:22px;background:rgba(12,13,16,.55);opacity:0}
+#end{inset:0;z-index:30;background:#0c0d10;opacity:0}
+#end .q{position:absolute;top:500px;left:70px;right:70px;text-align:center;font:800 84px/1.25 Alexandria}
+#end .q span{color:#25d366}
+#end .btn{position:absolute;top:900px;left:110px;right:110px;background:#25d366;color:#06240f;border-radius:999px;text-align:center;font:800 52px Alexandria;padding:26px 0 32px}
+#end .s{position:absolute;top:1060px;left:0;right:0;text-align:center;font:500 32px Alexandria;color:#9aa}
+#end img{position:absolute;top:1250px;left:50%;width:240px;margin-left:-120px}
+#prog{left:70px;right:70px;top:205px;height:8px;display:flex;gap:12px;z-index:5}
+#prog div{flex:1;background:rgba(255,255,255,.15);border-radius:4px;overflow:hidden}
+#prog div i{display:block;height:100%;width:0;background:#25d366}
+</style></head><body>
+<div id="bg" class="abs"></div>
+<div id="prog" class="abs"><div><i id="p1"></i></div><div><i id="p2"></i></div><div><i id="p3"></i></div></div>
+<div class="card" id="C1"><div class="tag">1 · مكتب محاماة</div><div class="nm">المحامي نعمان عبدالله</div>
+ <div class="ph"><div class="wh">واتساب · حملة لمّ الشمل <em id="b1">0</em></div><div class="lst" id="L1"></div></div>
+ <div class="note">الرسائل للتوضيح · الأرقام حقيقية</div><div class="stamp" id="S1">مش ملاحقين</div>
+ <div class="num1"><b class="num" id="n1">0</b><span>محادثة بـ3 أيام · بـ60 ₪</span></div></div>
+<div class="card" id="C2"><div class="tag">2 · مصنع تغليف</div><div class="nm">ريتال بوكس</div>
+ <div class="ph"><div class="wh">واتساب · طلبات تغليف <em id="b2">0</em></div><div class="lst" id="L2"></div></div>
+ <div class="note">الرسائل للتوضيح · الأرقام حقيقية</div><div class="stamp" id="S2">مش ملاحقين</div>
+ <div class="num1"><b class="num" id="n2">0</b><span>محادثة من أصحاب مصالح</span></div></div>
+<div class="card" id="C3"><div class="tag">3 · معرض مطابخ</div><div class="nm">مطابخ بيانكو</div>
+ <div class="ph"><div class="wh">واتساب · استشارات مطابخ <em id="b3">0</em></div><div class="lst" id="L3"></div></div>
+ <div class="note">الرسائل للتوضيح · الأرقام حقيقية</div><div class="stamp" id="S3">مش ملاحقين</div>
+ <div class="num1"><b class="num" id="n3">0</b><span>محادثة من الإعلانات</span></div></div>
+<div id="hook" class="abs"><div class="a">مشكلة حلوة 😅</div><div class="b">3 زباين عنا هالشهر<br><span>مش ملاحقين على الشغل.</span></div><div class="c">محامي · مصنع تغليف · معرض مطابخ</div></div>
+<div id="end" class="abs"><div class="q">بدك تكون<br><span>الرابع؟</span></div><div class="btn">ابعت «فحص» على الواتساب</div><div class="s">فحص مجاني لصفحتك · 15 دقيقة</div><img src="../repos/nmd--/brand/logo_white.png"></div>
+<script src="lib.js"></script>
+<script>
+const cols=['#e9b44c','#7ee0c3','#ff8fa3','#b6a6ff','#53bdeb','#f28b50','#9ad16b','#e9b44c','#7ee0c3','#ff8fa3','#b6a6ff','#53bdeb'];
+const M={L1:['بخصوص لمّ الشمل','وصلتني رسالة من الداخلية','ملف زوجتي رجع لورا','قديش بتاخد المعاملة؟','ممكن استشارة؟','شفت الإعلان','عندي سؤال عن التجديد','السلام عليكم'],
+L2:['بدي 1000 كيس بشعاري','قديش سعر الكرتونة؟','عندي محل حلويات','بدي علب للعيد','ممكن عينة؟','أقل كمية قديش؟','بدي تصميم للكيس','مرحبا، شفت الإعلان'],
+L3:['بدي أحجز استشارة','عرسان 2027 💍','قديش المطبخ 4 متر؟','الـ36 دفعة لسا ساري؟','بدنا نزور المعرض','ممكن تصميم مجاني؟','عندي مخطط البيت','مرحبا، شفت الريل']};
+for(const k in M){const L=$('#'+k);M[k].forEach((m,i)=>{const d=document.createElement('div');d.className='wi';d.innerHTML=`<i style="background:${cols[i]}"></i><div><b>محادثة جديدة</b><span>${m}</span></div><u>1</u>`;L.prepend(d);});}
+const SEG=[[2.8,8.3,'1',98],[8.3,13.8,'2',435],[13.8,19.3,'3',415]];
+window.render=async function(t){
+ set('#hook',{o:1-lin(t,2.5,2.8)});
+ set('#hook .a',{tf:`scale(${mix(1.3,1,back(lin(t,0,.5)))})`,o:lin(t,0,.25)});
+ set('#hook .b',{o:lin(t,.7,1.1),tf:`translateY(${mix(30,0,eo(lin(t,.7,1.2)))}px)`});set('#hook .c',{o:lin(t,1.4,1.8)});
+ SEG.forEach(([a,b,id,N])=>{
+  const on=t>=a&&t<b+.25;const C=$('#C'+id);
+  set(C,{o:on?lin(t,a,a+.25)*(1-lin(t,b,b+.25)):0,tf:`translateX(${mix(0,-120,lin(t,b,b+.25))}px) translateX(${mix(120,0,eo(lin(t,a,a+.3)))}px)`});
+  const k=lin(t,a+.4,b-1.6);const shown=Math.ceil(8*lin(t,a+.4,a+3));
+  document.querySelectorAll('#L'+id+' .wi').forEach((e,i)=>{const idx=7-i;e.style.display=idx<shown?'flex':'none';});
+  set('#n'+id,{txt:fmt(N*eio(k))});set('#b'+id,{txt:fmt(N*eio(k))});
+  set('#S'+id,{o:lin(t,b-1.5,b-1.3),tf:`rotate(-8deg) scale(${mix(2.2,1,eo(lin(t,b-1.5,b-1.2)))})`});
+  set('#p'+id,{width:(lin(t,a,b)*100)+'%'});
+ });
+ set('#prog',{o:t>2.8&&t<19.4?1:0});
+ set('#end',{o:lin(t,19.3,19.6)});
+ set('#end .q',{tf:`scale(${mix(.8,1,back(lin(t,19.4,19.9)))})`});set('#end .btn',{o:lin(t,20.1,20.4),tf:`scale(${mix(.7,1,back(lin(t,20.1,20.6)))})`});set('#end .s',{o:lin(t,20.5,20.8)});set('#end img',{o:lin(t,20.8,21.1)});
+};
+document.fonts.ready.then(()=>{window.ready=true});
+</script></body></html>
