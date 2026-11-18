@@ -73,6 +73,19 @@ body{background:#07080c}
 .cur{display:inline-block;width:8px;height:86px;background:#ff2a48;margin-right:10px;vertical-align:middle}
 .cta{bottom:70px;left:110px;right:110px;background:#25d366;color:#06240f;border-radius:999px;text-align:center;font:800 50px Alexandria;padding:26px 0 32px}
 .cta2{bottom:20px;left:0;right:0;text-align:center;font:500 28px Alexandria;color:#c9c9d2}
+
+.s1t{top:40px;right:60px;left:60px;font:700 38px Alexandria;color:#c9c9d2}
+.ph{top:110px;width:370px;height:658px;border-radius:30px;overflow:hidden;border:5px solid #2a2b33;background:#000}
+.ph img{width:100%;height:100%;object-fit:cover}
+.pl{position:absolute;top:14px;left:14px;right:14px;text-align:center;background:rgba(0,0,0,.7);border-radius:12px;font:700 28px Alexandria;padding:8px 0}
+.pr{position:absolute;bottom:14px;left:14px;right:14px;text-align:center;background:rgba(0,0,0,.8);border-radius:16px;font:600 30px Alexandria;padding:10px 0 14px;color:#ccc}
+.pr b{display:block;font:800 76px/1.1 Alexandria;color:#fff}
+.pr.hot{background:#d0102b;color:#fff}
+#s5{background:radial-gradient(700px 500px at 50% 40%,#2b0f17,#0e0f15)}
+.yk{top:250px;left:60px;right:60px;height:300px;border:5px solid #ff2a48;border-radius:28px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.yk b{font:800 96px Alexandria;direction:ltr}
+.yk span{font:600 34px Alexandria;color:#c9c9d2;margin-top:8px}
+.yk2{bottom:90px;left:70px;right:70px;text-align:center;font:600 40px/1.45 Alexandria;color:#e6e6ee}
 /* end */
 #end{inset:0;z-index:45;background:#07080c;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0}
 #end img{width:420px}
@@ -86,18 +99,16 @@ body{background:#07080c}
 
 <div id="scr" class="abs">
  <div id="s1" class="seg abs">
-  <div class="handle abs"><div class="av"><div>ق</div></div>@qashtotadabburiya</div>
-  <div class="rtitle abs">ريل «المدير… بنت وحدة بكل وردية» · 15/11</div>
-  <div class="big abs num" id="n1">0</div>
-  <div class="bigl abs">شخص وصلهم ريل واحد</div>
-  <div class="mini abs"><div><b class="num" id="n2">0</b><span>مشاهدة</span></div><div><b class="num" id="n3">0</b><span>مشاركة</span></div><div><b class="num" id="n4">0</b><span>حفظ</span></div></div>
+  <div class="s1t abs">ناو ماركت · نفس الأسبوع، توقيت مختلف</div>
+  <div class="ph abs" id="pA" style="right:60px"><img id="fA"><div class="pl">الجمعة 11:04 الصبح</div><div class="pr"><b class="num" id="rA">0</b> وصول</div></div>
+  <div class="ph abs" id="pB" style="left:60px"><img id="fB"><div class="pl">السبت 5:05 المسا</div><div class="pr hot"><b class="num" id="rB">0</b> وصول</div></div>
  </div>
  <div id="s2" class="seg abs">
-  <div class="s2t abs">وصول حساب قشطوطة، 3 أيام مقابل 3 أيام</div>
-  <div id="x39" class="abs num">×3.9</div>
+  <div class="s2t abs">ريل مقابل ريل · نفس الأسبوع</div>
+  <div id="x39" class="abs num">×7.8</div>
   <div id="c1" class="col abs"></div><div id="c2" class="col abs"></div>
-  <div id="v1" class="cv abs num" style="right:130px">3,430</div><div id="v2" class="cv abs num" style="left:130px">0</div>
-  <div class="cl abs" style="right:130px">12–14 نوفمبر</div><div class="cl abs" style="left:130px">15–17 نوفمبر</div>
+  <div id="v1" class="cv abs num" style="right:130px">41</div><div id="v2" class="cv abs num" style="left:130px">0</div>
+  <div class="cl abs" style="right:130px">الجمعة 11:04 الصبح</div><div class="cl abs" style="left:130px">السبت 5:05 المسا</div>
  </div>
  <div id="s3" class="seg abs">
   <img id="foot">
@@ -105,7 +116,12 @@ body{background:#07080c}
   <div class="arch abs"><span class="d"></span>من الأرشيف · معرض بيانكو، يركا</div>
   <div class="mini abs"><div><b class="num" id="m1">0</b><span>وصول</span></div><div><b class="num" id="m2">0</b><span>مشاركة</span></div><div><b>0 ₪</b><span>إعلانات</span></div></div>
  </div>
- <div id="s4" class="seg abs">
+ <div id="s4" class="seg abs" style="background:radial-gradient(700px 500px at 50% 40%,#2b0f17,#0e0f15)">
+  <div class="next abs">انضمّت لـ NMD هالأسبوع</div>
+  <div class="yk abs"><b>Yok Aesthetics</b><span>عيادة تجميل</span></div>
+  <div class="yk2 abs">من هلّق، كل أسبوع بالنشرة:<br>شو عملنا، وشو صار بالأرقام.</div>
+ </div>
+ <div id="s5" class="seg abs">
   <div class="next abs">الخبر الجاي بالنشرة…</div>
   <div class="slot abs"><span id="typed"></span><span class="cur" id="cur"></span></div>
   <div class="cta abs">ابعت «فحص» على الواتساب</div>
@@ -122,15 +138,16 @@ body{background:#07080c}
 <div id="wipe" class="abs"></div>
 <script src="lib.js"></script>
 <script>
-const items=['قشطوطة: +33 متابع جديد بثلاث أيام','222 شخص بعتوا ريل قشطوطة لغيرهم','بيانكو: ريل «عرسان 2027» انشارك 11 مرة','وصول حساب قشطوطة: من 3,430 لـ 13,383','مصلحتك: ؟','NMD: تسويق، برمجة، وأنظمة بيع لمصالح دبورية والمنطقة'];
+const items=['ناو ماركت: ريل المسا وصل تقريبًا 8 أضعاف ريل الصبح','المحامي نعمان عبدالله: ريل «وصلت المطار» وصل 15 ضعف المنشور اللي قبله','المحامي نمر مصالحة: ريل «لجنة طبية» 229 مشاهدة على تيك توك بأول يوم','بيانكو: ريل «عرسان 2027» انشارك 11 مرة','Yok Aesthetics انضمّت لـ NMD','مصلحتك: ؟','NMD: تسويق، برمجة، وأنظمة بيع لمصالح دبورية والمنطقة'];
 $('#run').innerHTML=(items.map(s=>s+'<i>●</i>').join('')).repeat(3);
-const HL=[ // [start,end,headline,sub,tag]
- [2.6,9.4,'ريل لمحل بدبورية وصل 11,706 شخص','قشطوطة · 15 نوفمبر','عاجل'],
- [9.8,13.2,'وصول الحساب كله صار تقريبًا 4 أضعاف بـ3 أيام','قشطوطة · 15–17 نوفمبر','عاجل'],
+const HL=[
+ [2.6,9.4,'نفس المصلحة، نفس الأسبوع: ريل المسا وصل 8 أضعاف ريل الصبح','ناو ماركت · 13–14 نوفمبر','عاجل'],
+ [9.8,13.2,'الدرس: التوقيت نص الشغل. ناو ماركت صارت تنزّل كوميديا بالمسا بس','ناو ماركت · دبورية','تحليل'],
  [13.6,19.6,'ريل «عرسان 2027» لبيانكو وصل 1,857 شخص قبل أي إعلان ممول','مطابخ بيانكو · يركا','من الأرشيف'],
- [20.0,23.6,'الخبر الجاي ممكن يكون عن مصلحتك','ابعت «فحص» وبنفحصلك صفحتك ببلاش','قريبًا'],
+ [20.0,23.2,'مصلحة جديدة انضمّت. الأرقام كل أسبوع هون','Yok Aesthetics','جديد'],
+ [23.6,26.9,'الخبر الجاي ممكن يكون عن مصلحتك','ابعت «فحص» وبنفحصلك صفحتك ببلاش','قريبًا'],
 ];
-const W=[2.35,9.55,13.4,19.8]; // wipe centers
+const W=[2.35,9.55,13.4,19.8,23.4]; // wipe centers
 window.render=async function(t){
  // wipe
  let wx=-1700;for(const c of W){const k=lin(t,c-.28,c+.28);if(k>0&&k<1)wx=mix(-1700,1180,eio(k));}
@@ -144,26 +161,28 @@ window.render=async function(t){
  set('#bug .dot',{o:(Math.floor(t*2)%2)?1:.25});
  set('#rays',{tf:`rotate(${t*1.2}deg)`});
  // segments
- const segs=[['#s1',2.35,9.55],['#s2',9.55,13.4],['#s3',13.4,19.8],['#s4',19.8,26]];
+ const segs=[['#s1',2.35,9.55],['#s2',9.55,13.4],['#s3',13.4,19.8],['#s4',19.8,23.4],['#s5',23.4,29]];
  for(const [id,a,b] of segs) set(id,{o:(t>=a&&t<b)?1:0});
- // s1 counters
- const k1=eo(lin(t,3,5.2));set('#n1',{txt:fmt(11706*k1)});
- set('#n2',{txt:fmt(19977*eo(lin(t,4.2,6.4)))});set('#n3',{txt:fmt(222*eo(lin(t,5,7)))});set('#n4',{txt:fmt(20*eo(lin(t,5.6,7.2)))});
- set('#s1 .big',{tf:`scale(${mix(.85,1,back(lin(t,2.9,3.6)))})`,transformOrigin:'right top'});
+ // s1 phones
+ if(t>=2.35&&t<9.55){await seq($('#fA'),'nm_fri',t-2.35+1.5,30,360);await seq($('#fB'),'nm_sat',t-2.35+0.5,30,394);}
+ set('#pA',{tf:`translateY(${mix(80,0,eo(lin(t,2.5,3.1)))}px)`,o:lin(t,2.5,2.8)});set('#pB',{tf:`translateY(${mix(80,0,eo(lin(t,2.8,3.4)))}px)`,o:lin(t,2.8,3.1)});
+ set('#rA',{txt:fmt(41*eo(lin(t,4,5.2)))});set('#rB',{txt:fmt(321*eo(lin(t,5.6,7.4)))});
+ set('#pB .pr',{tf:`scale(${t>7.4?1+.04*Math.sin((t-7.4)*10)*Math.exp(-(t-7.4)*2):1})`});
  // s2 bars
- const H=400,h1=H*3430/13383, k2=eo(lin(t,10,11.6));
+ const H=400,h1=H*41/321, k2=eo(lin(t,10,11.6));
  set('#c1',{height:h1*eo(lin(t,9.7,10.4))+'px'});set('#c2',{height:H*k2+'px'});
- set('#v1',{bottom:(120+h1*eo(lin(t,9.7,10.4))+14)+'px'});set('#v2',{bottom:(120+H*k2+14)+'px',txt:fmt(13383*k2)});
+ set('#v1',{bottom:(120+h1*eo(lin(t,9.7,10.4))+14)+'px'});set('#v2',{bottom:(120+H*k2+14)+'px',txt:fmt(321*k2)});
  set('#x39',{o:lin(t,11.6,12),tf:`scale(${mix(1.6,1,back(lin(t,11.6,12.1)))})`});
  // s3 footage
  if(t>=13.4&&t<19.8){await seq($('#foot'),'yazan',t-13.4+5.0,30,1226);}
  set('#foot',{tf:`scale(${mix(1.08,1,lin(t,13.4,19.8))})`});
  set('#m1',{txt:fmt(1857*eo(lin(t,15,17)))});set('#m2',{txt:fmt(11*eo(lin(t,15.6,17.2)))});
  // s4 typing
- const full='اسم مصلحتك هون';const nT=Math.floor(full.length*lin(t,20.6,22.2));
+ const full='اسم مصلحتك هون';const nT=Math.floor(full.length*lin(t,24.2,25.6));
  set('#typed',{txt:full.slice(0,nT)});set('#cur',{o:(Math.floor(t*2.5)%2)?1:0});
- set('#s4 .cta',{tf:`scale(${mix(.6,1,back(lin(t,22.4,22.9)))})`,o:lin(t,22.4,22.7)});
- set('#s4 .cta2',{o:lin(t,22.8,23.2)});
+ set('#s5 .cta',{tf:`scale(${mix(.6,1,back(lin(t,25.8,26.3)))})`,o:lin(t,25.8,26.1)});
+ set('#s5 .cta2',{o:lin(t,26.2,26.6)});
+ set('.yk',{tf:`scale(${mix(.6,1,back(lin(t,20.2,20.8)))})`,o:lin(t,20.2,20.5)});set('.yk2',{o:lin(t,21,21.4)});
  // lower third
  let cur=null;for(const h of HL) if(t>=h[0]-.05&&t<h[1]+.35) cur=h;
  if(cur){const kin=eo(lin(t,cur[0],cur[0]+.35)),kout=lin(t,cur[1],cur[1]+.3);
@@ -174,7 +193,7 @@ window.render=async function(t){
  // ticker (moves left->right for RTL)
  const rw=$('#run').scrollWidth/3;set('#run',{tf:`translateX(${-rw+((t*150)%rw)}px)`});
  // end card
- const ke=lin(t,23.8,24.2);set('#end',{o:ke});set('#end img',{tf:`scale(${mix(.8,1,back(lin(t,23.8,24.4)))})`});
+ const ke=lin(t,27.2,27.6);set('#end',{o:ke});set('#end img',{tf:`scale(${mix(.8,1,back(lin(t,27.2,27.8)))})`});
 };
 document.fonts.ready.then(()=>{window.ready=true});
 </script></body></html>
