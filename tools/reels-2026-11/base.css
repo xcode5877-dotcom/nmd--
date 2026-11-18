@@ -1,0 +1,14 @@
+@import url("../fonts/fontsource-cairo-5.3.0/400.css");
+@import url("../fonts/fontsource-cairo-5.3.0/700.css");
+@import url("../fonts/fontsource-cairo-5.3.0/900.css");
+@import url("../fonts/fontsource-tajawal-5.3.0/500.css");
+@import url("../fonts/fontsource-tajawal-5.3.0/800.css");
+@import url("../fonts/fontsource-reem-kufi-5.3.0/700.css");
+@font-face{font-family:Alexandria;font-weight:800;src:url("../repos/retal-media/fonts/Alexandria-ExtraBold.ttf")}
+@font-face{font-family:Alexandria;font-weight:600;src:url("../repos/retal-media/fonts/Alexandria-SemiBold.ttf")}
+@font-face{font-family:Alexandria;font-weight:500;src:url("../repos/retal-media/fonts/Alexandria-Medium.ttf")}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+body{direction:rtl;font-family:Alexandria,Cairo,sans-serif;color:#fff;position:relative;-webkit-font-smoothing:antialiased}
+.abs{position:absolute}
+.num{font-feature-settings:"tnum";direction:ltr;unicode-bidi:isolate}

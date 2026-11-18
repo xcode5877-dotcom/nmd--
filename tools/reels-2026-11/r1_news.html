@@ -1,0 +1,180 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="base.css">
+<style>
+body{background:#07080c}
+#bg{inset:0;background:radial-gradient(1200px 900px at 50% 30%,#2a0d14 0%,#0d0a10 55%,#050507 100%)}
+#rays{inset:0;background:repeating-conic-gradient(from 0deg at 50% -10%,rgba(255,255,255,.035) 0 4deg,transparent 4deg 12deg);mix-blend-mode:screen}
+#floor{left:-200px;right:-200px;top:1250px;height:900px;background:
+ linear-gradient(transparent,rgba(0,0,0,.9)),
+ repeating-linear-gradient(90deg,rgba(255,60,80,.18) 0 2px,transparent 2px 120px),
+ repeating-linear-gradient(0deg,rgba(255,60,80,.18) 0 2px,transparent 2px 90px);
+ transform:perspective(600px) rotateX(62deg);transform-origin:top}
+/* channel bug */
+#bug{top:200px;right:60px;display:flex;align-items:center;gap:0;height:76px}
+#bug .ch{background:#d0102b;font:800 38px Alexandria;padding:6px 26px 10px;height:76px;display:flex;align-items:center;gap:12px}
+#bug .ch b{font:800 40px Alexandria;letter-spacing:1px;direction:ltr}
+#bug .live{background:#fff;color:#111;font:800 28px Alexandria;height:76px;padding:0 22px;display:flex;align-items:center;gap:10px}
+#bug .dot{width:16px;height:16px;border-radius:50%;background:#d0102b}
+#clock{top:212px;left:60px;font:600 40px Alexandria;color:#fff;opacity:.85;direction:ltr}
+/* screen */
+#scr{left:70px;right:70px;top:330px;height:820px;border-radius:26px;overflow:hidden;background:#0e0f15;
+ box-shadow:0 0 0 3px rgba(255,255,255,.08),0 40px 120px rgba(0,0,0,.7),0 0 140px rgba(208,16,43,.25)}
+.seg{inset:0;opacity:0}
+.scan{inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 2px,transparent 2px 5px);pointer-events:none}
+/* lower third */
+#lt{left:0;right:0;top:1172px;height:300px}
+#tag{right:60px;top:0;background:#d0102b;font:800 44px Alexandria;padding:10px 30px 16px;transform-origin:right}
+#hl{right:60px;left:60px;top:84px;background:#fff;color:#0b0b0f;font:800 46px/1.3 Alexandria;padding:16px 30px 18px;transform-origin:right;min-height:150px}
+#hl small{display:block;font:600 30px Alexandria;color:#d0102b;margin-top:6px}
+/* ticker */
+#tk{left:0;right:0;top:1492px;height:74px;background:#0b0b10;border-top:4px solid #d0102b;overflow:hidden}
+#tk .lab{position:absolute;right:0;top:0;bottom:0;width:190px;background:#d0102b;z-index:2;font:800 34px Alexandria;display:flex;align-items:center;justify-content:center}
+#tk .run{position:absolute;top:10px;white-space:nowrap;font:600 36px Alexandria;color:#f2f2f2;left:0}
+#tk .run i{color:#d0102b;font-style:normal;margin:0 26px}
+#wipe{top:0;bottom:0;width:1600px;left:-1700px;background:linear-gradient(90deg,transparent,#d0102b 18%,#ff2a48 50%,#d0102b 82%,transparent);transform:skewX(-14deg);z-index:50}
+/* S0 intro */
+#s0{inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:40;background:#07080c}
+#s0 .t1{font:800 150px Alexandria;letter-spacing:-2px}
+#s0 .t1 span{color:#ff2a48}
+#s0 .t2{font:500 40px Alexandria;opacity:.8;margin-top:10px}
+#s0 .bar{height:14px;background:#d0102b;margin-top:34px;width:0}
+/* S1 stat card */
+#s1{background:linear-gradient(160deg,#16121a,#0e0f15)}
+.handle{top:54px;right:56px;display:flex;align-items:center;gap:18px;font:600 34px Alexandria;direction:ltr}
+.av{width:78px;height:78px;border-radius:50%;background:conic-gradient(#f9ce34,#ee2a7b,#6228d7,#f9ce34);padding:5px}
+.av div{width:100%;height:100%;border-radius:50%;background:#1b1b22;display:flex;align-items:center;justify-content:center;font:800 34px Alexandria;color:#fff}
+.rtitle{top:170px;right:56px;left:56px;font:600 36px Alexandria;color:#c9c9d2}
+.big{top:250px;right:56px;font:800 230px/1 Alexandria;color:#fff;letter-spacing:-6px}
+.bigl{top:500px;right:60px;font:600 44px Alexandria;color:#ff4a63}
+.mini{bottom:56px;display:flex;gap:22px;left:56px;right:56px}
+.mini div{flex:1;background:rgba(255,255,255,.06);border-radius:20px;padding:18px 20px;border:2px solid rgba(255,255,255,.08)}
+.mini b{display:block;font:800 54px Alexandria}
+.mini span{font:500 28px Alexandria;color:#aab}
+/* S2 bars */
+#s2{background:#0e0f15}
+.s2t{top:60px;right:60px;font:700 40px Alexandria;color:#c9c9d2}
+.col{bottom:120px;width:250px;border-radius:18px 18px 0 0}
+#c1{right:170px;background:#3a3b48}
+#c2{left:170px;background:linear-gradient(#ff2a48,#a50d22)}
+.cv{width:330px;text-align:center;font:800 64px Alexandria}
+.cl{bottom:50px;width:330px;text-align:center;font:500 30px Alexandria;color:#aab}
+#x39{top:150px;right:130px;width:330px;text-align:center;font:800 120px Alexandria;color:#fff}
+/* S3 footage */
+#s3 img{position:absolute;left:0;top:-40px;width:100%;}
+#s3 .shade{inset:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.85))}
+.arch{bottom:200px;right:40px;background:rgba(0,0,0,.6);border:2px solid rgba(255,255,255,.25);font:600 30px Alexandria;padding:10px 20px;border-radius:12px;display:flex;gap:12px;align-items:center}
+.arch .d{width:14px;height:14px;border-radius:50%;background:#ffcc33}
+#s3 .mini{bottom:40px}
+#s3 .mini div{background:rgba(10,10,14,.75);backdrop-filter:blur(6px)}
+/* S4 */
+#s4{background:radial-gradient(700px 500px at 50% 40%,#2b0f17,#0e0f15)}
+.next{top:110px;left:0;right:0;text-align:center;font:600 46px Alexandria;color:#c9c9d2}
+.slot{top:250px;left:60px;right:60px;height:300px;border:5px dashed rgba(255,255,255,.35);border-radius:28px;display:flex;align-items:center;justify-content:center;font:800 80px Alexandria;color:#fff}
+.cur{display:inline-block;width:8px;height:86px;background:#ff2a48;margin-right:10px;vertical-align:middle}
+.cta{bottom:70px;left:110px;right:110px;background:#25d366;color:#06240f;border-radius:999px;text-align:center;font:800 50px Alexandria;padding:26px 0 32px}
+.cta2{bottom:20px;left:0;right:0;text-align:center;font:500 28px Alexandria;color:#c9c9d2}
+/* end */
+#end{inset:0;z-index:45;background:#07080c;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0}
+#end img{width:420px}
+#end .e1{font:800 56px Alexandria;margin-top:50px}
+#end .e1 span{color:#ff2a48}
+#end .e2{font:500 34px Alexandria;color:#aab;margin-top:18px}
+</style></head><body>
+<div id="bg" class="abs"></div><div id="rays" class="abs"></div><div id="floor" class="abs"></div>
+<div id="bug" class="abs"><div class="ch"><b>NMD</b> نيوز</div><div class="live"><span class="dot"></span>مباشر</div></div>
+<div id="clock" class="abs">18:30</div>
+
+<div id="scr" class="abs">
+ <div id="s1" class="seg abs">
+  <div class="handle abs"><div class="av"><div>ق</div></div>@qashtotadabburiya</div>
+  <div class="rtitle abs">ريل «المدير… بنت وحدة بكل وردية» · 15/11</div>
+  <div class="big abs num" id="n1">0</div>
+  <div class="bigl abs">شخص وصلهم ريل واحد</div>
+  <div class="mini abs"><div><b class="num" id="n2">0</b><span>مشاهدة</span></div><div><b class="num" id="n3">0</b><span>مشاركة</span></div><div><b class="num" id="n4">0</b><span>حفظ</span></div></div>
+ </div>
+ <div id="s2" class="seg abs">
+  <div class="s2t abs">وصول حساب قشطوطة، 3 أيام مقابل 3 أيام</div>
+  <div id="x39" class="abs num">×3.9</div>
+  <div id="c1" class="col abs"></div><div id="c2" class="col abs"></div>
+  <div id="v1" class="cv abs num" style="right:130px">3,430</div><div id="v2" class="cv abs num" style="left:130px">0</div>
+  <div class="cl abs" style="right:130px">12–14 نوفمبر</div><div class="cl abs" style="left:130px">15–17 نوفمبر</div>
+ </div>
+ <div id="s3" class="seg abs">
+  <img id="foot">
+  <div class="shade abs"></div>
+  <div class="arch abs"><span class="d"></span>من الأرشيف · معرض بيانكو، يركا</div>
+  <div class="mini abs"><div><b class="num" id="m1">0</b><span>وصول</span></div><div><b class="num" id="m2">0</b><span>مشاركة</span></div><div><b>0 ₪</b><span>إعلانات</span></div></div>
+ </div>
+ <div id="s4" class="seg abs">
+  <div class="next abs">الخبر الجاي بالنشرة…</div>
+  <div class="slot abs"><span id="typed"></span><span class="cur" id="cur"></span></div>
+  <div class="cta abs">ابعت «فحص» على الواتساب</div>
+  <div class="cta2 abs">فحص مجاني · 15 دقيقة · لعدد محدود</div>
+ </div>
+ <div class="scan abs"></div>
+</div>
+
+<div id="lt" class="abs"><div id="tag" class="abs">عاجل</div><div id="hl" class="abs"><span id="hlt"></span><small id="hls"></small></div></div>
+<div id="tk" class="abs"><div class="lab">NMD</div><div class="run" id="run"></div></div>
+
+<div id="s0" class="abs"><div class="t1">نشرة <span>NMD</span></div><div class="t2">أخبار بتهم أصحاب المصالح</div><div class="bar" id="s0bar"></div></div>
+<div id="end" class="abs"><img src="../repos/nmd--/brand/logo_white.png"><div class="e1">بنجيب زباين، <span>مش لايكات.</span></div><div class="e2">تسويق · برمجة · أنظمة بيع</div></div>
+<div id="wipe" class="abs"></div>
+<script src="lib.js"></script>
+<script>
+const items=['قشطوطة: +33 متابع جديد بثلاث أيام','222 شخص بعتوا ريل قشطوطة لغيرهم','بيانكو: ريل «عرسان 2027» انشارك 11 مرة','وصول حساب قشطوطة: من 3,430 لـ 13,383','مصلحتك: ؟','NMD: تسويق، برمجة، وأنظمة بيع لمصالح دبورية والمنطقة'];
+$('#run').innerHTML=(items.map(s=>s+'<i>●</i>').join('')).repeat(3);
+const HL=[ // [start,end,headline,sub,tag]
+ [2.6,9.4,'ريل لمحل بدبورية وصل 11,706 شخص','قشطوطة · 15 نوفمبر','عاجل'],
+ [9.8,13.2,'وصول الحساب كله صار تقريبًا 4 أضعاف بـ3 أيام','قشطوطة · 15–17 نوفمبر','عاجل'],
+ [13.6,19.6,'ريل «عرسان 2027» لبيانكو وصل 1,857 شخص قبل أي إعلان ممول','مطابخ بيانكو · يركا','من الأرشيف'],
+ [20.0,23.6,'الخبر الجاي ممكن يكون عن مصلحتك','ابعت «فحص» وبنفحصلك صفحتك ببلاش','قريبًا'],
+];
+const W=[2.35,9.55,13.4,19.8]; // wipe centers
+window.render=async function(t){
+ // wipe
+ let wx=-1700;for(const c of W){const k=lin(t,c-.28,c+.28);if(k>0&&k<1)wx=mix(-1700,1180,eio(k));}
+ set('#wipe',{left:wx+'px'});
+ // intro
+ set('#s0',{o:t<2.35?1:0});
+ set('#s0 .t1',{tf:`scale(${mix(1.25,1,eo(lin(t,0,.7)))})`,o:eo(lin(t,0,.5))});
+ set('#s0 .t2',{o:eo(lin(t,.5,1))});
+ set('#s0bar',{width:mix(0,620,eo(lin(t,.7,1.6)))+'px'});
+ // live dot
+ set('#bug .dot',{o:(Math.floor(t*2)%2)?1:.25});
+ set('#rays',{tf:`rotate(${t*1.2}deg)`});
+ // segments
+ const segs=[['#s1',2.35,9.55],['#s2',9.55,13.4],['#s3',13.4,19.8],['#s4',19.8,26]];
+ for(const [id,a,b] of segs) set(id,{o:(t>=a&&t<b)?1:0});
+ // s1 counters
+ const k1=eo(lin(t,3,5.2));set('#n1',{txt:fmt(11706*k1)});
+ set('#n2',{txt:fmt(19977*eo(lin(t,4.2,6.4)))});set('#n3',{txt:fmt(222*eo(lin(t,5,7)))});set('#n4',{txt:fmt(20*eo(lin(t,5.6,7.2)))});
+ set('#s1 .big',{tf:`scale(${mix(.85,1,back(lin(t,2.9,3.6)))})`,transformOrigin:'right top'});
+ // s2 bars
+ const H=400,h1=H*3430/13383, k2=eo(lin(t,10,11.6));
+ set('#c1',{height:h1*eo(lin(t,9.7,10.4))+'px'});set('#c2',{height:H*k2+'px'});
+ set('#v1',{bottom:(120+h1*eo(lin(t,9.7,10.4))+14)+'px'});set('#v2',{bottom:(120+H*k2+14)+'px',txt:fmt(13383*k2)});
+ set('#x39',{o:lin(t,11.6,12),tf:`scale(${mix(1.6,1,back(lin(t,11.6,12.1)))})`});
+ // s3 footage
+ if(t>=13.4&&t<19.8){await seq($('#foot'),'yazan',t-13.4+5.0,30,1226);}
+ set('#foot',{tf:`scale(${mix(1.08,1,lin(t,13.4,19.8))})`});
+ set('#m1',{txt:fmt(1857*eo(lin(t,15,17)))});set('#m2',{txt:fmt(11*eo(lin(t,15.6,17.2)))});
+ // s4 typing
+ const full='اسم مصلحتك هون';const nT=Math.floor(full.length*lin(t,20.6,22.2));
+ set('#typed',{txt:full.slice(0,nT)});set('#cur',{o:(Math.floor(t*2.5)%2)?1:0});
+ set('#s4 .cta',{tf:`scale(${mix(.6,1,back(lin(t,22.4,22.9)))})`,o:lin(t,22.4,22.7)});
+ set('#s4 .cta2',{o:lin(t,22.8,23.2)});
+ // lower third
+ let cur=null;for(const h of HL) if(t>=h[0]-.05&&t<h[1]+.35) cur=h;
+ if(cur){const kin=eo(lin(t,cur[0],cur[0]+.35)),kout=lin(t,cur[1],cur[1]+.3);
+  set('#tag',{txt:cur[4],tf:`scaleX(${kin*(1-kout)})`});set('#hl',{tf:`scaleX(${eo(lin(t,cur[0]+.1,cur[0]+.45))*(1-kout)})`});
+  set('#hlt',{txt:cur[2]});set('#hls',{txt:cur[3]});set('#hl span,#hl small',{});
+  set('#hlt',{o:lin(t,cur[0]+.35,cur[0]+.55)});set('#hls',{o:lin(t,cur[0]+.45,cur[0]+.7)});
+ } else {set('#tag',{tf:'scaleX(0)'});set('#hl',{tf:'scaleX(0)'});}
+ // ticker (moves left->right for RTL)
+ const rw=$('#run').scrollWidth/3;set('#run',{tf:`translateX(${-rw+((t*150)%rw)}px)`});
+ // end card
+ const ke=lin(t,23.8,24.2);set('#end',{o:ke});set('#end img',{tf:`scale(${mix(.8,1,back(lin(t,23.8,24.4)))})`});
+};
+document.fonts.ready.then(()=>{window.ready=true});
+</script></body></html>

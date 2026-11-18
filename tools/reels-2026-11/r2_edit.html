@@ -1,0 +1,149 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="base.css">
+<style>
+body{background:#1b1c20}
+#app{inset:0;background:#1b1c20}
+.bar{left:0;right:0;top:200px;height:84px;background:#26272d;border-bottom:2px solid #34353c;display:flex;align-items:center;padding:0 36px;gap:20px;direction:ltr}
+.bar .dots{display:flex;gap:12px}.bar .dots i{width:20px;height:20px;border-radius:50%;display:block}
+.bar .fn{font:500 30px Alexandria;color:#c8c9d0;margin-left:16px;letter-spacing:.3px}
+.bar .tc{margin-left:auto;font:600 34px "Courier New",monospace;color:#7ee0c3}
+/* monitor */
+#mon{left:520px;top:310px;width:520px;height:925px;background:#000;border-radius:10px;overflow:hidden;box-shadow:0 0 0 3px #34353c}
+#mon img{width:100%;height:100%;object-fit:cover}
+#mon .lab{position:absolute;left:12px;top:10px;font:600 22px Alexandria;color:#fff;background:rgba(0,0,0,.55);padding:4px 10px;border-radius:6px;direction:ltr}
+#focus{border:6px solid #ffcf3f;border-radius:14px;position:absolute;opacity:0;box-shadow:0 0 30px rgba(255,207,63,.6)}
+/* notes */
+#notes{left:40px;top:310px;width:450px;height:925px}
+.note{position:absolute;left:0;right:0;top:0;border-radius:22px;padding:30px 30px 34px;color:#111;transform-origin:50% 0}
+.note .k{font:800 30px Alexandria;opacity:.6}
+.note .h{font:800 52px/1.2 Alexandria;margin-top:10px}
+.note .p{font:600 34px/1.45 Alexandria;margin-top:18px}
+.n1{background:#ffcf3f}.n2{background:#7ee0c3}.n3{background:#ff8fa3}.n4{background:#b6a6ff}
+.mini{position:absolute;left:0;right:0;height:84px;border-radius:16px;padding:16px 22px;font:700 30px Alexandria;color:#111;display:flex;align-items:center;gap:14px}
+.mini b{font:800 30px Alexandria;width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.15);display:flex;align-items:center;justify-content:center}
+/* timeline */
+#tl{left:0;right:0;top:1262px;height:300px;background:#202127;border-top:2px solid #34353c;direction:ltr}
+.ruler{left:110px;right:30px;top:10px;height:40px;border-bottom:2px solid #3a3b42;background:repeating-linear-gradient(90deg,#55565e 0 2px,transparent 2px 24.4px)}
+.track{left:110px;right:30px;height:62px;border-radius:8px;overflow:hidden}
+.tn{left:20px;width:80px;font:700 24px Alexandria;color:#8b8c95;height:62px;display:flex;align-items:center}
+#v2{top:64px;background:transparent}
+#v2 .clip{position:absolute;top:6px;height:50px;border-radius:8px;background:#6b4fd6;font:600 20px Alexandria;color:#fff;padding:12px 10px;white-space:nowrap;overflow:hidden;direction:rtl}
+#v1{top:136px;display:flex;background:#111}
+#v1 img{height:62px;width:calc(100%/12);object-fit:cover;border-right:2px solid #202127}
+#a1{top:208px;background:#173a33}
+#a1 canvas{width:100%;height:62px}
+.mk{position:absolute;top:2px;width:22px;height:26px;clip-path:polygon(0 0,100% 0,100% 70%,50% 100%,0 70%)}
+#ph{top:0;bottom:0;width:4px;background:#ff3b4a;margin-left:-2px}
+#ph:before{content:"";position:absolute;top:0;left:-12px;border:14px solid transparent;border-top:18px solid #ff3b4a}
+/* hook */
+#hook{inset:0;background:rgba(10,10,12,.86);backdrop-filter:blur(10px);display:flex;flex-direction:column;justify-content:center;padding:0 80px;z-index:20}
+#hook .a{font:800 74px/1.22 Alexandria}
+#hook .a span{color:#ffcf3f}
+#hook .b{font:600 46px/1.4 Alexandria;color:#c8c9d0;margin-top:30px}
+#hook .file{display:inline-flex;align-items:center;gap:18px;font:500 32px Alexandria;color:#c8c9d0;background:#26272d;border-radius:14px;padding:14px 22px;margin-bottom:40px;align-self:flex-start;direction:ltr}
+/* export + results */
+#exp{left:140px;right:140px;top:760px;background:#26272d;border-radius:24px;padding:36px;z-index:21;box-shadow:0 30px 90px rgba(0,0,0,.6);opacity:0}
+#exp .t{font:700 38px Alexandria;color:#fff}
+#exp .pb{height:22px;border-radius:11px;background:#3a3b42;margin-top:26px;overflow:hidden}
+#exp .pb div{height:100%;background:#7ee0c3;width:0}
+#exp .pc{font:600 30px Alexandria;color:#8b8c95;margin-top:14px;direction:ltr;text-align:right}
+#res{inset:0;z-index:22;background:#141418;opacity:0;padding:0 70px}
+#res .t{position:absolute;top:330px;right:70px;left:70px;font:800 66px/1.2 Alexandria}
+#res .t span{color:#7ee0c3}
+.grid{position:absolute;top:560px;left:70px;right:70px;display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.grid div{background:#202127;border-radius:24px;padding:30px 30px 34px;border:2px solid #2e2f36}
+.grid b{display:block;font:800 92px/1.1 Alexandria}
+.grid span{font:600 32px Alexandria;color:#8b8c95}
+#cta{position:absolute;top:1130px;left:70px;right:70px}
+#cta .q{font:800 54px/1.3 Alexandria}
+#cta .btn{margin-top:34px;background:#25d366;color:#06240f;border-radius:999px;text-align:center;font:800 48px Alexandria;padding:24px 0 30px}
+#cta .s{margin-top:18px;text-align:center;font:500 28px Alexandria;color:#8b8c95}
+#logo{position:absolute;top:1480px;left:0;right:0;text-align:center}
+#logo img{width:200px;opacity:.9}
+</style></head><body>
+<div id="app" class="abs">
+ <div class="bar abs"><div class="dots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div><div class="fn">bianco_3rsan2027_FINAL_v7.prproj</div><div class="tc" id="tc">00:00:00:00</div></div>
+ <div id="mon" class="abs"><img id="foot"><div class="lab">PROGRAM</div></div>
+ <div id="focus"></div>
+ <div id="notes" class="abs">
+  <div class="note n1" id="N1"><div class="k">قرار 1 · الثانية الأولى</div><div class="h">بنسمّي الجمهور.</div><div class="p">«عرسان 2027». اللي مش عريس بيكمّل سكرول… وهاد بالزبط اللي بدنا إياه.</div></div>
+  <div class="note n2" id="N2"><div class="k">قرار 2 · الثانية الرابعة</div><div class="h">وعد صغير.</div><div class="p">«ضلّكم لآخر الفيديو، في إشي للعروس». الناس بتكمّل عشان تعرف شو هو.</div></div>
+  <div class="note n3" id="N3"><div class="k">قرار 3 · الثانية 28</div><div class="h">العرض بالأرقام.</div><div class="p">«36 دفعة بدون فوائد». مش «أسعار منافسة» ولا «أفضل جودة».</div></div>
+  <div class="note n4" id="N4"><div class="k">قرار 4 · آخر لقطة</div><div class="h">رقم، مش «تابعونا».</div><div class="p">واتساب وعنوان المعرض. اللي اقتنع بيعرف شو يعمل بنفس اللحظة.</div></div>
+ </div>
+ <div id="tl" class="abs">
+  <div class="ruler abs" id="ruler"></div>
+  <div class="tn abs" style="top:64px">V2</div><div class="tn abs" style="top:136px">V1</div><div class="tn abs" style="top:208px">A1</div>
+  <div class="track abs" id="v2"></div>
+  <div class="track abs" id="v1"></div>
+  <div class="track abs" id="a1"><canvas id="wv" width="940" height="62"></canvas></div>
+  <div id="ph" class="abs"></div>
+ </div>
+</div>
+<div id="hook" class="abs">
+ <div class="file">📁 bianco_3rsan2027_FINAL_v7</div>
+ <div class="a">فتحنا ملف المونتاج<br>لريل وصل <span class="num">1,857</span> شخص</div>
+ <div class="b">بدون ولا شيكل إعلان. هاي القرارات الأربعة اللي عملت الفرق.</div>
+</div>
+<div id="exp" class="abs"><div class="t" style="direction:ltr;text-align:left">Export · bianco_3rsan2027.mp4</div><div class="pb"><div id="pbar"></div></div><div class="pc num" id="pc">0%</div></div>
+<div id="res" class="abs">
+ <div class="t">والنتيجة بعد ما نزل،<br><span>قبل أي إعلان ممول:</span></div>
+ <div class="grid"><div><b class="num" id="r1">0</b><span>وصول</span></div><div><b class="num" id="r2">0</b><span>مشاهدة</span></div><div><b class="num" id="r3">0</b><span>مشاركة</span></div><div><b>0 ₪</b><span>إعلانات</span></div></div>
+ <div id="cta"><div class="q">بدك نفتح ملف مصلحتك على الطاولة؟</div><div class="btn">ابعت «فحص» على الواتساب</div><div class="s">فحص مجاني · 15 دقيقة · لعدد محدود</div></div>
+ <div id="logo"><img src="../repos/nmd--/brand/logo_white.png"></div>
+</div>
+<script src="lib.js"></script>
+<script>
+const SRC=40.87, X0=110, XW=1080-110-30;
+// thumbs
+for(let i=0;i<12;i++){const im=document.createElement('img');im.src=`frames/thumbs/y${i}.jpg`;$('#v1').appendChild(im);}
+// v2 text clips (source seconds)
+[[0,4,'عرسان 2027'],[4,7,'ضلكم لآخر الفيديو'],[12,20,'مودرن، كلاسيك'],[27.8,30,'36 دفعة'],[38.5,40.8,'كرت النهاية']].forEach(([a,b,s])=>{const d=document.createElement('div');d.className='clip';d.style.left=(a/SRC*100)+'%';d.style.width=((b-a)/SRC*100)+'%';d.textContent=s;$('#v2').appendChild(d);});
+// waveform
+fetch('wave_y.txt').then(r=>r.text()).then(tx=>{const v=tx.trim().split(',').map(Number);const c=$('#wv'),g=c.getContext('2d');g.fillStyle='#4fd1a9';const w=c.width/v.length;v.forEach((x,i)=>{const h=Math.max(2,x*56);g.fillRect(i*w,31-h/2,Math.max(1,w-.6),h)});window.ready=true;});
+// markers
+const MK=[[0.3,'#ffcf3f'],[4.2,'#7ee0c3'],[27.6,'#ff8fa3'],[38.6,'#b6a6ff']];
+MK.forEach(([s,c])=>{const m=document.createElement('div');m.className='mk';m.style.background=c;m.style.left=(X0+s/SRC*XW-11)+'px';$('#tl').appendChild(m);});
+// plan: segments [tStart,tEnd,srcStart]
+const SEG=[[2.8,7.3,0.3],[7.8,12.3,4.2],[12.8,17.6,27.0],[18.1,22.6,38.0]];
+const NOTES=['#N1','#N2','#N3','#N4'];
+// focus boxes over monitor (relative to monitor, px): [x,y,w,h]
+const MON={x:520,y:310,w:520,h:925};
+const FB=[[60,80,420,150],[40,180,440,90],[90,105,300,120],[30,260,460,520]];
+function srcAt(t){ // returns source time and whether scrubbing
+ for(let i=0;i<SEG.length;i++){const [a,b,s]=SEG[i];if(t>=a&&t<b)return [s+(t-a),false,i];
+  const nx=SEG[i+1]; if(nx&&t>=b&&t<nx[0]){const k=eio(lin(t,b,nx[0]));return [mix(s+(b-a),nx[2],k),true,i];}}
+ if(t<SEG[0][0])return [0.3,false,-1];
+ const L=SEG[SEG.length-1];return [Math.min(SRC-.05,L[2]+(t-L[0])),false,3];
+}
+window.render=async function(t){
+ const [st,scr,si]=srcAt(t);
+ await seq($('#foot'),'yazan',st,30,1226);
+ set('#ph',{left:(X0+st/SRC*XW)+'px'});
+ const fr=Math.floor(st*30)%30,ss=Math.floor(st);set('#tc',{txt:`00:00:${String(ss).padStart(2,'0')}:${String(fr).padStart(2,'0')}`});
+ // hook
+ set('#hook',{o:1-lin(t,2.5,2.9)});
+ set('#hook .a',{tf:`translateY(${mix(40,0,eo(lin(t,0,.6)))}px)`,o:lin(t,0,.4)});set('#hook .b',{o:lin(t,.7,1.1)});set('#hook .file',{o:lin(t,0,.3)});
+ // notes: current big, previous collapse to minis stacked at bottom
+ NOTES.forEach((id,i)=>{const [a,b]=SEG[i];const el=$(id);
+  if(t<a){set(el,{o:0});return;}
+  const kin=back(lin(t,a+.15,a+.6));
+  if(t<b+.2){set(el,{o:lin(t,a+.15,a+.35),tf:`translateY(${mix(60,0,kin)}px) rotate(${mix(-4,i%2?1.2:-1.2,kin)}deg) scale(${mix(.8,1,kin)})`,top:'0px',height:'auto'});}
+  else{const k=eio(lin(t,b+.2,b+.6));set(el,{o:1,tf:`translateY(${mix(0,925-96*(4-i),k)}px) scale(${mix(1,.0001+1,0)})`});el.classList.toggle('collapsed',k>.5);}
+ });
+ // collapse rendering: when collapsed show only k line by clipping height
+ NOTES.forEach((id,i)=>{const el=$(id);const b=SEG[i][1];const k=eio(lin(t,b+.2,b+.6));el.style.maxHeight=mix(700,84,k)+'px';el.style.overflow='hidden';el.style.padding=k>0?`${mix(30,22,k)}px 30px`:'30px 30px 34px';el.querySelectorAll('.h,.p').forEach(x=>x.style.opacity=1-k);});
+ // focus rectangle
+ let fo=0,fbx=FB[0];if(si>=0&&!scr){const [a,b]=SEG[si];fo=lin(t,a+.5,a+.8)*(1-lin(t,b-.3,b));fbx=FB[si];}
+ const pulse=1+.015*Math.sin(t*8);
+ set('#focus',{o:fo,left:(MON.x+fbx[0])+'px',top:(MON.y+fbx[1])+'px',width:fbx[2]+'px',height:fbx[3]+'px',transform:`scale(${pulse})`});
+ // export
+ const ke=lin(t,22.7,23.0)*(1-lin(t,24.6,24.9));set('#exp',{o:ke,tf:`scale(${mix(.9,1,eo(lin(t,22.7,23.1)))})`});
+ const pp=eio(lin(t,23.0,24.4));set('#pbar',{width:pp*100+'%'});set('#pc',{txt:Math.round(pp*100)+'%'});
+ // results
+ set('#res',{o:lin(t,24.7,25.0)});
+ set('#r1',{txt:fmt(1857*eo(lin(t,25.0,26.6)))});set('#r2',{txt:fmt(2998*eo(lin(t,25.3,26.9)))});set('#r3',{txt:fmt(11*eo(lin(t,25.6,27)))});
+ set('#cta',{o:lin(t,27.2,27.6),tf:`translateY(${mix(40,0,eo(lin(t,27.2,27.7)))}px)`});
+ set('#logo',{o:lin(t,27.8,28.2)});
+};
+</script></body></html>

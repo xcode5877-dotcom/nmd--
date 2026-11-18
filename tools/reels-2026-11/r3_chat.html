@@ -1,0 +1,103 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="base.css">
+<style>
+body{background:#0b141a}
+#wall{inset:0;background:#0b141a;background-image:radial-gradient(rgba(255,255,255,.035) 2px,transparent 2px);background-size:46px 46px}
+#hdr{left:0;right:0;top:190px;height:130px;background:#1f2c34;display:flex;align-items:center;padding:0 34px;gap:22px;z-index:5}
+#hdr .back{font:500 50px Alexandria;color:#aebac1}
+#hdr .av{width:84px;height:84px;border-radius:50%;background:#e9b44c;display:flex;align-items:center;justify-content:center;font:800 40px Alexandria;color:#3b2a06}
+#hdr .nm{font:700 38px Alexandria;color:#e9edef}
+#hdr .st{font:500 26px Alexandria;color:#8696a0;margin-top:2px}
+#hdr .ic{margin-right:auto;display:flex;gap:40px;font:500 40px Alexandria;color:#aebac1}
+#demo{right:34px;top:336px;z-index:6;background:rgba(31,44,52,.95);color:#8696a0;font:500 24px Alexandria;padding:6px 16px;border-radius:10px}
+#view{left:0;right:0;top:320px;height:1150px;overflow:hidden}
+#list{position:absolute;left:0;right:0;bottom:0;padding:0 34px 20px;display:flex;flex-direction:column;gap:14px}
+.m{max-width:760px;padding:18px 24px 14px;border-radius:22px;font:500 40px/1.45 Alexandria;color:#e9edef;position:relative;transform-origin:var(--o)}
+.in{align-self:flex-start;background:#202c33;border-top-right-radius:6px;--o:100% 0}
+.out{align-self:flex-end;background:#005c4b;border-top-left-radius:6px;--o:0 0}
+.m .tm{display:block;text-align:left;font:500 22px Alexandria;color:rgba(233,237,239,.6);margin-top:4px;direction:ltr}
+.m .tm .ck{color:#53bdeb;margin-left:6px}
+.vid{padding:8px 8px 10px}
+.vid .box{width:440px;height:782px;border-radius:16px;overflow:hidden;position:relative}
+.vid img{width:100%;height:100%;object-fit:cover}
+.vid .cap{padding:10px 14px 0}
+.lst b{color:#7ae3c3}
+.typing{align-self:flex-start;background:#202c33;border-radius:22px;padding:22px 28px;display:flex;gap:10px}
+.typing i{width:14px;height:14px;border-radius:50%;background:#8696a0;display:block}
+#inp{left:0;right:0;top:1478px;height:100px;display:flex;align-items:center;gap:18px;padding:0 24px;z-index:5}
+#inp .f{flex:1;height:84px;border-radius:42px;background:#1f2c34;display:flex;align-items:center;padding:0 34px;font:500 36px Alexandria;color:#8696a0}
+#inp .mic{width:84px;height:84px;border-radius:50%;background:#00a884;display:flex;align-items:center;justify-content:center;font:500 38px Alexandria}
+/* notification hook */
+#notif{left:40px;right:40px;top:230px;background:rgba(40,40,46,.96);border-radius:34px;padding:28px 32px;z-index:30;display:flex;gap:24px;align-items:center;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+#notif .ap{width:90px;height:90px;border-radius:22px;background:#25d366;display:flex;align-items:center;justify-content:center;font:800 46px Alexandria;color:#fff;flex:none}
+#notif .t{font:700 32px Alexandria;color:#fff}
+#notif .t span{float:left;font:500 26px Alexandria;color:#aaa}
+#notif .b{font:500 38px/1.35 Alexandria;color:#eee;margin-top:6px}
+#dim{inset:0;background:rgba(0,0,0,.6);z-index:25}
+#big{left:60px;right:60px;top:560px;z-index:31;font:800 96px/1.15 Alexandria;text-align:center}
+#big span{color:#25d366}
+/* end */
+#end{inset:0;z-index:40;background:#0b141a;opacity:0}
+#end .row{position:absolute;top:560px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:50px;direction:ltr}
+#end .row img{height:120px}
+#end .x{font:300 90px Alexandria;color:#8696a0}
+#end .t{position:absolute;top:800px;left:70px;right:70px;text-align:center;font:800 64px/1.3 Alexandria}
+#end .t span{color:#25d366}
+#end .btn{position:absolute;top:1100px;left:110px;right:110px;background:#25d366;color:#06240f;border-radius:999px;text-align:center;font:800 50px Alexandria;padding:26px 0 32px}
+#end .s{position:absolute;top:1250px;left:0;right:0;text-align:center;font:500 30px Alexandria;color:#8696a0}
+</style></head><body>
+<div id="wall" class="abs"></div>
+<div id="hdr" class="abs"><div class="back">→</div><div class="av">ح</div><div><div class="nm">محل حلويات · زبون جديد</div><div class="st" id="st">متصل الآن</div></div><div class="ic"><span>📞</span><span>⋮</span></div></div>
+<div id="demo" class="abs">مثال توضيحي</div>
+<div id="view" class="abs"><div id="list"></div></div>
+<div id="inp" class="abs"><div class="f">رسالة</div><div class="mic">🎙</div></div>
+<div id="dim" class="abs"></div>
+<div id="notif" class="abs"><div class="ap">✆</div><div style="flex:1"><div class="t">محل حلويات <span>الآن</span></div><div class="b">الشغل منيح… بس الصفحة ميتة 💀</div></div></div>
+<div id="big" class="abs">رسالة بتوصلنا<br>كثير. <span>هيك منرد.</span></div>
+<div id="end" class="abs"><div class="row"><img src="frames/retal_logo.png"><div class="x">×</div><img src="../repos/nmd--/brand/logo_white.png" style="height:90px"></div>
+ <div class="t">ريتال بتبني العلبة.<br><span>&rlm;NMD بتجيب الزبون.</span></div>
+ <div class="btn">ابعت «فحص» على الواتساب</div><div class="s">فحص مجاني لصفحتك · 15 دقيقة</div></div>
+<script src="lib.js"></script>
+<script>
+// [time, side, html, typingBefore]
+const MSG=[
+ [2.9,'in','مرحبا 👋',0],
+ [3.8,'in','عندي محل حلويات. الشغل منيح… بس الصفحة ميتة 💀',0],
+ [5.4,'out','أهلين! سؤال: بشو بتغلّف الطلبات؟',0],
+ [7.0,'in','كيس أبيض عادي 😅',1],
+ [8.3,'out','VIDEO',0],
+ [13.6,'out','هاد شغل ريتال بوكس. نفس الكيس، بس صار إعلان ماشي بالشارع.',0],
+ [15.6,'in','حلو! بس الكيس لحاله ما بجيب زباين…',1],
+ [17.2,'out','صح 💯 عشان هيك منشتغل سوا:<br>📦 ريتال بتبني العلبة<br>📲 وإحنا بنجيب الزبون',0],
+ [19.6,'in','كيف يعني؟',1],
+ [20.8,'out','LIST',0],
+ [23.4,'in','طيب، من وين بلّش؟',1],
+ [24.6,'out','من فحص مجاني لصفحتك، 15 دقيقة. ابعت «فحص» 👇',0],
+ [26.2,'in','فحص',1],
+];
+const html={VIDEO:'<div class="box"><img id="rv"></div><div class="cap">قبل وبعد 👆</div>',
+ LIST:'<span class="lst"><b>1.</b> إعلان بيوصل للناس الصح بمنطقتك<br><b>2.</b> صفحة بترد خلال دقيقة<br><b>3.</b> طلب واضح على الواتساب</span>'};
+const L=$('#list');const els=[];let mm=31;
+MSG.forEach(([t,side,h,ty],i)=>{
+ if(ty){const d=document.createElement('div');d.className='typing';d.innerHTML='<i></i><i></i><i></i>';d.style.display='none';L.appendChild(d);els.push({typ:true,el:d,t0:t-1.0,t1:t});}
+ const e=document.createElement('div');e.className='m '+side+(h==='VIDEO'?' vid':'');
+ e.innerHTML=(html[h]||h)+`<span class="tm">18:${mm}${side==='out'?'<span class="ck">✓✓</span>':''}</span>`;e.style.display='none';L.appendChild(e);els.push({el:e,t0:t});
+});
+window.render=async function(t){
+ for(const o of els){
+  if(o.typ){o.el.style.display=(t>=o.t0&&t<o.t1)?'flex':'none';o.el.querySelectorAll('i').forEach((d,k)=>d.style.transform=`translateY(${-8*Math.max(0,Math.sin(t*9-k*.9))}px)`);continue;}
+  if(t>=o.t0){o.el.style.display='block';const k=back(lin(t,o.t0,o.t0+.3));o.el.style.transform=`scale(${mix(.6,1,k)})`;o.el.style.opacity=lin(t,o.t0,o.t0+.12);}
+  else o.el.style.display='none';
+ }
+ set('#st',{txt:els.some(o=>o.typ&&t>=o.t0&&t<o.t1)?'عم يكتب…':'متصل الآن'});
+ const rv=$('#rv');if(rv&&t>=8.3)await seq(rv,'retal',t-8.5,30,315);
+ // hook
+ const hk=1-lin(t,2.4,2.8);
+ set('#dim',{o:hk});set('#notif',{o:hk,tf:`translateY(${mix(-260,0,back(lin(t,.1,.6)))}px)`});
+ set('#big',{o:lin(t,.8,1.1)*hk,tf:`scale(${mix(.85,1,back(lin(t,.8,1.2)))})`});
+ // end
+ set('#end',{o:lin(t,27.6,28.0)});
+ set('#end .row',{tf:`scale(${mix(.8,1,back(lin(t,27.7,28.2)))})`});set('#end .t',{o:lin(t,28.1,28.4)});set('#end .btn',{o:lin(t,28.5,28.8),tf:`scale(${mix(.7,1,back(lin(t,28.5,29)))})`});set('#end .s',{o:lin(t,28.8,29.1)});
+};
+document.fonts.ready.then(()=>{window.ready=true});
+</script></body></html>
